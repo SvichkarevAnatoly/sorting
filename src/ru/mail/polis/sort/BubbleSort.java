@@ -1,7 +1,6 @@
 package ru.mail.polis.sort;
 
 public class BubbleSort {
-
     public static int[] sort(int a[]) {
         boolean wasSwap = true;
         int j = 0;

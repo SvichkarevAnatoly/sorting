@@ -1,37 +1,23 @@
 package ru.mail.polis.sort.valid;
 
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import ru.mail.polis.sort.BubbleSort;
+import ru.mail.polis.sort.Helper;
+import ru.mail.polis.sort.InsertionSort;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestRule;
-import org.junit.rules.TestWatcher;
-import org.junit.runner.Description;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
-import ru.mail.polis.sort.BubbleSort;
-import ru.mail.polis.sort.Helper;
 
 @RunWith(value = Parameterized.class)
 public class Tester {
-
-    @Rule
-    public TestRule watcher = new TestWatcher() {
-        protected void starting(final Description description) {
-            System.err.println("=== Running " + description.getMethodName());
-        }
-    };
-
     @Parameterized.Parameter
     public int[] array;
 
-    @Parameterized.Parameters(name = "{index}")
+    @Parameterized.Parameters
     public static Collection<int[]> data() {
         return Arrays.asList(new int[][]{
             {0},
@@ -57,8 +43,13 @@ public class Tester {
     }
 
     @Test
-    public void test01_checkBubbleSort() throws IOException {
+    public void bubbleSort() throws IOException {
         Assert.assertTrue(isSorted(BubbleSort.sort(array)));
+    }
+
+    @Test
+    public void insertionSort() throws IOException {
+        Assert.assertTrue(isSorted(InsertionSort.sort(array)));
     }
 
 }
