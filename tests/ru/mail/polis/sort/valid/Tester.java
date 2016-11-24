@@ -6,6 +6,7 @@ import org.junit.runners.Parameterized;
 import ru.mail.polis.sort.BubbleSort;
 import ru.mail.polis.sort.Helper;
 import ru.mail.polis.sort.InsertionSort;
+import ru.mail.polis.sort.QuickSort;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -46,4 +47,8 @@ public class Tester {
         assertThat(InsertionSort.sort(array), isSorted());
     }
 
+    @Test
+    public void quickSort() throws IOException {
+        assertThat(QuickSort.sort(array), isSorted());
+    }
 }
