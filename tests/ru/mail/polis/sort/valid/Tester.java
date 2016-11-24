@@ -1,6 +1,5 @@
 package ru.mail.polis.sort.valid;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -11,6 +10,9 @@ import ru.mail.polis.sort.InsertionSort;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static ru.mail.polis.sort.valid.IsSorted.isSorted;
 
 @RunWith(value = Parameterized.class)
 public class Tester {
@@ -34,22 +36,14 @@ public class Tester {
         });
     }
 
-    private boolean isSorted(int[] a) {
-        boolean isSorted = true;
-        for (int i = 0; i < a.length - 1 && isSorted; i++) {
-            isSorted = a[i] <= a[i + 1];
-        }
-        return isSorted;
-    }
-
     @Test
     public void bubbleSort() throws IOException {
-        Assert.assertTrue(isSorted(BubbleSort.sort(array)));
+        assertThat(BubbleSort.sort(array), isSorted());
     }
 
     @Test
     public void insertionSort() throws IOException {
-        Assert.assertTrue(isSorted(InsertionSort.sort(array)));
+        assertThat(InsertionSort.sort(array), isSorted());
     }
 
 }
