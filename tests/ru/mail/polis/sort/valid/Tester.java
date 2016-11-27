@@ -55,6 +55,11 @@ public class Tester {
     }
 
     @Test
+    public void quickSort3PartRandom() throws IOException {
+        assertThat(QuickSort3PartRandom.sort(array), isSorted());
+    }
+
+    @Test
     public void mergeSort() throws IOException {
         assertThat(MergeSort.sort(array), isSorted());
     }
