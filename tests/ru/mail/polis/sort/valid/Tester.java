@@ -45,6 +45,11 @@ public class Tester {
     }
 
     @Test
+    public void shellSort() throws IOException {
+        assertThat(ShellSort.sort(array), isSorted());
+    }
+
+    @Test
     public void quickSort() throws IOException {
         assertThat(QuickSort.sort(array), isSorted());
     }
