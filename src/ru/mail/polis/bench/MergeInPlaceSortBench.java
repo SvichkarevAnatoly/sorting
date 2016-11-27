@@ -6,14 +6,14 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import ru.mail.polis.sort.Helper;
-import ru.mail.polis.sort.Quick3PartRandomSort;
+import ru.mail.polis.sort.MergeInPlaceSort;
 
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-public class QuickSort3PartRandomBench {
+public class MergeInPlaceSortBench {
 
     private int[] a3;
     private int[] a4;
@@ -25,18 +25,18 @@ public class QuickSort3PartRandomBench {
     }
 
     @Benchmark
-    public int[] measureQuickSort3PartRandom1000() {
-        return Quick3PartRandomSort.sort(a3);
+    public int[] measureMergeInPlaceSort1000() {
+        return MergeInPlaceSort.sort(a3);
     }
 
     @Benchmark
-    public int[] measureQuickSort3PartRandom10000() {
-        return Quick3PartRandomSort.sort(a4);
+    public int[] measureMergeInPlaceSort10000() {
+        return MergeInPlaceSort.sort(a4);
     }
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
-                .include(QuickSort3PartRandomBench.class.getSimpleName())
+                .include(MergeInPlaceSortBench.class.getSimpleName())
                 .warmupIterations(5)
                 .measurementIterations(5)
                 .forks(1)

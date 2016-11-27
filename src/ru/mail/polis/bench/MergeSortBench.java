@@ -25,12 +25,12 @@ public class MergeSortBench {
     }
 
     @Benchmark
-    public int[] measureShellSort1000() {
+    public int[] measureMergeSort1000() {
         return MergeSort.sort(a3);
     }
 
     @Benchmark
-    public int[] measureShellSort10000() {
+    public int[] measureMergeSort10000() {
         return MergeSort.sort(a4);
     }
 

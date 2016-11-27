@@ -4,7 +4,7 @@ import java.util.Random;
 
 import static ru.mail.polis.sort.Helper.swap;
 
-public class QuickSort3PartRandom {
+public class Quick3PartRandomSort {
     private static Random rand = new Random();
 
     public static int[] sort(int[] a) {
